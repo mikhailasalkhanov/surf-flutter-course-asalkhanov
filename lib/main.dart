@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(App());
 }
 
 class MyFirstWidget extends StatelessWidget {
   var _counter = 0;
+
   @override
   Widget build(BuildContext context) {
     _counter++;
@@ -17,11 +18,18 @@ class MyFirstWidget extends StatelessWidget {
       )
     );
   }
+
+  // Type getContextType() {
+  //   return context.runtimeType;
+  // }
 }
 
 class MyFirstStatefulWidget extends StatefulWidget {
+  var counter = 0;
+  
   @override
   _MyFirstStatefulWidgetState createState() => _MyFirstStatefulWidgetState();
+
 }
 
 class _MyFirstStatefulWidgetState extends State<MyFirstStatefulWidget> {
@@ -37,6 +45,10 @@ class _MyFirstStatefulWidgetState extends State<MyFirstStatefulWidget> {
         child: Text('$_counter'),
       )
     );
+  }
+
+  Type getContextType() {
+    return context.runtimeType;
   }
 }
 
@@ -63,6 +75,16 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyFirstWidget(),
+    );
+  }
+}
+
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MyFirstWidget(),
+      title: 'Основы фреймворка',
     );
   }
 }
