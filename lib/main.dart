@@ -11,7 +11,6 @@ class MyFirstWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     _counter++;
     print(_counter);
-    //счетчик всегда показывает 1, переменная _counter создается и уничтожается каждый раз вместе с виджетом 
     return Container(
       child: Center(
         child: Text('Hello!'),
@@ -39,7 +38,6 @@ class _MyFirstStatefulWidgetState extends State<MyFirstStatefulWidget> {
   Widget build(BuildContext context) {
     _counter++;      
     print(_counter);
-    //значения счетчика сохраняются, значит State сохраняется, когда виджет перерисовывается
     return Container(
       child: Center(
         child: Text('$_counter'),
