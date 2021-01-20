@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/ui/screen/sight_list_screen.dart';
 
 void main() {
   runApp(App());
@@ -11,7 +12,6 @@ class MyFirstWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     _counter++;
     print(_counter);
-    //счетчик всегда показывает 1, переменная _counter создается и уничтожается каждый раз вместе с виджетом 
     return Container(
       child: Center(
         child: Text('Hello!'),
@@ -39,7 +39,6 @@ class _MyFirstStatefulWidgetState extends State<MyFirstStatefulWidget> {
   Widget build(BuildContext context) {
     _counter++;      
     print(_counter);
-    //значения счетчика сохраняются, значит State сохраняется, когда виджет перерисовывается
     return Container(
       child: Center(
         child: Text('$_counter'),
@@ -83,8 +82,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyFirstWidget(),
-      title: 'Основы фреймворка',
+      home: SightListScreen(),
+      title: 'Список интересных мест',
     );
   }
 }
