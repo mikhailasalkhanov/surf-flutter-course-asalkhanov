@@ -13,13 +13,14 @@ class _SightListScreenState extends State<SightListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Список\nинтересных мест',
-        style: TextStyle(
-          color: Color(0xFF3B3E5B),
-          fontFamily: 'Roboto',
-          fontSize: 32,
-          fontStyle: FontStyle.normal,
-          fontWeight: FontWeight.bold,          
-        )),
+          style: TextStyle(
+            color: Color(0xFF3B3E5B),
+            fontFamily: 'Roboto',
+            fontSize: 32,
+            fontStyle: FontStyle.normal,
+            fontWeight: FontWeight.bold,          
+          )
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         toolbarHeight: 128,
