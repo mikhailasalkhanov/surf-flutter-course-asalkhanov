@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:places/ui/res/strings/strings.dart';
+import 'package:places/ui/res/text_styles.dart';
 
+/// Виджет экрана "Список интересных мест"
 class SightListScreen extends StatefulWidget {
   @override
   _SightListScreenState createState() => _SightListScreenState();
@@ -11,7 +14,12 @@ class _SightListScreenState extends State<SightListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('AppBarTitle'), 
+        title: Text(sightListScreenAppBarText,
+          style: textStyle
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        toolbarHeight: 128,
       ),
     );
   }
