@@ -1,7 +1,7 @@
 import 'domain/sight.dart';
 
 ///Заглушки для карточек интересных мест
-final List mocks = [
+final List<Sight> sightMocks = [
   amurskiyMost,
   vdrovaPizzeria,
   uspenskiySobor
