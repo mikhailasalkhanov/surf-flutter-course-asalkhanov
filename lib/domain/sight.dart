@@ -15,7 +15,7 @@ class Sight {
   ///Тип интересного места
   final String type;
 
-  Sight({
+  const Sight({
     this.name, 
     this.lat, 
     this.lon, 
