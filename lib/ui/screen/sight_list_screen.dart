@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:places/domain/sight.dart';
 import 'package:places/mocks.dart';
 import 'package:places/ui/res/colors.dart';
 import 'package:places/ui/res/strings/strings.dart';
 import 'package:places/ui/res/text_styles.dart';
-import 'package:places/ui/screen/sight_card.dart';
 
 /// Экран "Список интересных мест"
 class SightListScreen extends StatefulWidget {
@@ -33,7 +31,7 @@ class _SightListScreenState extends State<SightListScreen> {
         alignment: Alignment.center,
         child: SingleChildScrollView(
           child: Column(
-            children: sightMocks,
+            children: sightCardMocks,
           ),
         ),
       ),
