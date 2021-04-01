@@ -17,7 +17,7 @@ class _SightListScreenState extends State<SightListScreen> {
     return Scaffold(
       appBar: AppBar(        
         title: const Padding(
-          padding: const EdgeInsets.only(top: 24),
+          padding: const EdgeInsets.only(top: 32),
           child: const Text(
             Strings.sightListAppBar,
             style: const TextStyles.largeTitle(AppColors.secondary),          
@@ -25,7 +25,7 @@ class _SightListScreenState extends State<SightListScreen> {
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        toolbarHeight: 128,
+        toolbarHeight: 120,
       ),
       body: Container(
         alignment: Alignment.center,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/res/colors.dart';
-import 'package:places/ui/res/strings/strings.dart';
 import 'package:places/ui/res/text_styles.dart';
 
 /// Карточка интересного места для отображения в списке интересных мест
@@ -11,7 +10,11 @@ class SightCard extends StatelessWidget {
   final Sight _sight;
 
   /// Конструктор
-  const SightCard(this._sight);
+  const SightCard({
+    Key key,
+    @required Sight sight,
+  })  : _sight = sight,
+        super(key: key);
 
   /// Возвращает виджет, визуально разделенный на две части: верхнюю и нижнюю.
   /// Верхняя содержит изображение-превью места, подпись с типом места и
@@ -19,20 +22,32 @@ class SightCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+      padding: const EdgeInsets.only(
+        left: 16,
+        right: 16,
+        bottom: 8,
+        top: 8,
+      ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16.0),
         child: Column(
           children: [
-            _buildPreview(),
-            _buildAnnotation(),
+            _SightPreview(_sight),
+            _SightAnnotation(_sight),
           ],
         ),
       ),
     );
   }
+}
 
-  Stack _buildPreview() {
+class _SightPreview extends StatelessWidget {
+  const _SightPreview(this._sight);
+
+  final Sight _sight;
+
+  @override
+  Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
@@ -40,10 +55,8 @@ class SightCard extends StatelessWidget {
           color: Colors.indigo,
         ),
         Positioned(
-          top: 16,
           left: 16,
-          width: 148,
-          height: 18,
+          top: 16,
           child: Text(
             _sight.type,
             style: const TextStyles.smallBold(AppColors.white),
@@ -61,35 +74,54 @@ class SightCard extends StatelessWidget {
       ],
     );
   }
+}
 
-  Stack _buildAnnotation() {
-    return Stack(
-      children: [
-        Container(
-          height: 92,
-          color: AppColors.background,
-        ),
-        Positioned(
-          top: 16,
-          left: 16,
-          width: 296,
-          height: 40,
-          child: Text(
-            _sight.name,
-            style: const TextStyles.text(AppColors.secondary),
+class _SightAnnotation extends StatelessWidget {
+  const _SightAnnotation(this._sight);
+
+  final Sight _sight;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 92,
+      width: double.infinity,
+      color: AppColors.background,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(
+              left: 16,
+              top: 16,
+              right: 16,
+            ),
+            child: Text(
+              _sight.name,
+              style: const TextStyles.text(AppColors.secondary),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
-        ),
-        Positioned(
-          left: 16,
-          bottom: 16,
-          width: 296,
-          height: 18,
-          child: const Text(
-            Strings.sightCardShortcut,
-            style: const TextStyles.small(AppColors.secondary2),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: 16,
+                top: 4,
+                right: 16,
+                bottom: 16,
+              ),
+              child: Text(
+                _sight.details,
+                style: const TextStyles.small(AppColors.secondary2),
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.left,
+                maxLines: 2,
+              ),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
